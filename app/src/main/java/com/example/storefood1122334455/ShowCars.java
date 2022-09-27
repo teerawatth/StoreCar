@@ -24,7 +24,7 @@ public class ShowCars extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
-    private List<Car> foods;
+    private List<Car> cars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class ShowCars extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
 
-        foods = new ArrayList<>();
+        cars = new ArrayList<>();
 
         //displaying progress dialog while fetching images
         progressDialog.setMessage("Please wait...");
@@ -55,7 +55,7 @@ public class ShowCars extends AppCompatActivity {
                 //iterating through all the values in database
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Car food = postSnapshot.getValue(Car.class);
-                    foods.add(food);
+                    cars.add(food);
                 }
 
                 //adding adapter to recyclerview
@@ -68,7 +68,7 @@ public class ShowCars extends AppCompatActivity {
             }
         });
 
-        adapter = new CarAdapter(foods, this);
+        adapter = new CarAdapter(cars, this);
 
     }
 }

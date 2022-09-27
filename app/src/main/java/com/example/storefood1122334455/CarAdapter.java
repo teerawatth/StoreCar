@@ -17,11 +17,11 @@ import java.util.List;
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
 
     private Context context;
-    private List<Car> foods;
+    private List<Car> cars;
     private ValueEventListener valueEventListener;
 
-    public CarAdapter(List<Car> foods, Context context) {
-        this.foods = foods;
+    public CarAdapter(List<Car> cars, Context context) {
+        this.cars = cars;
         this.context = context;
     }
 
@@ -35,15 +35,15 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Car upload = foods.get(position);
+        Car upload = cars.get(position);
         holder.textViewName.setText(upload.getName());
-        holder.textViewPrice.setText(upload.getPrice() + " บาท");
+        holder.textViewPrice.setText(upload.getPrice() + " Baht");
         Glide.with(context).load(upload.getUrl()).into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return foods.size();
+        return cars.size();
     }
 
     /*
