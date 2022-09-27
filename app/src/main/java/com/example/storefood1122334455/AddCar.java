@@ -10,7 +10,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,10 +27,10 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-public class AddFood extends AppCompatActivity {
+public class AddCar extends AppCompatActivity {
 
-    String Storage_Path = "foods_images/";
-    String Database_Path = "foods";
+    String Storage_Path = "cars_images/";
+    String Database_Path = "cars";
     android.widget.Button bChoose, bAdd;
     android.widget.EditText edName, edPrice ;
     android.widget.ImageView img;
@@ -48,7 +47,7 @@ public class AddFood extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_food);
+        setContentView(R.layout.activity_add_car);
 
         bChoose = (Button) findViewById(R.id.bChoose);
         bAdd = (Button) findViewById(R.id.bAdd);
@@ -59,7 +58,7 @@ public class AddFood extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
 
-        progressDialog = new android.app.ProgressDialog(AddFood.this);
+        progressDialog = new android.app.ProgressDialog(AddCar.this);
 
         bChoose.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
@@ -124,11 +123,11 @@ public class AddFood extends AppCompatActivity {
                             sRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri downloadPhotoUrl) {
-                                    Food food = new Food(edName.getText().toString().trim(),
+                                    Car car = new Car(edName.getText().toString().trim(),
                                             Integer.parseInt(edPrice.getText().toString().trim()),
                                             downloadPhotoUrl.toString());
                                     String uploadId = mDatabase.push().getKey();
-                                    mDatabase.child(uploadId).setValue(food);
+                                    mDatabase.child(uploadId).setValue(car);
                                 }
                             });
 
@@ -150,7 +149,7 @@ public class AddFood extends AppCompatActivity {
                         }
                     });
         } else {
-            android.widget.Toast.makeText(AddFood.this, "Please Select Image or Add Image Name", android.widget.Toast.LENGTH_LONG).show();
+            android.widget.Toast.makeText(AddCar.this, "Please Select Image or Add Image Name", android.widget.Toast.LENGTH_LONG).show();
         }
     }
 

@@ -1,15 +1,15 @@
 package com.example.storefood1122334455;
 
-public class Food {
+public class Car {
 
     private String name;
     private int price;
     private String url;
 
-    public Food(){
+    public Car(){
     }
 
-    public Food(String name, int price, String url) {
+    public Car(String name, int price, String url) {
         this.name = name;
         this.price = price;
         this.url = url;

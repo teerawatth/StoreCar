@@ -14,13 +14,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
-public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
+public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
 
     private Context context;
-    private List<Food> foods;
+    private List<Car> foods;
     private ValueEventListener valueEventListener;
 
-    public FoodAdapter(List<Food> foods, Context context) {
+    public CarAdapter(List<Car> foods, Context context) {
         this.foods = foods;
         this.context = context;
     }
@@ -28,14 +28,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.layout_food, parent, false);
+                .inflate(R.layout.layout_car, parent, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Food upload = foods.get(position);
+        Car upload = foods.get(position);
         holder.textViewName.setText(upload.getName());
         holder.textViewPrice.setText(upload.getPrice() + " บาท");
         Glide.with(context).load(upload.getUrl()).into(holder.imageView);

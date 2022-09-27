@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showAddFood(){
-        Intent intent = new Intent(MainActivity.this, AddFood.class);
+        Intent intent = new Intent(MainActivity.this, AddCar.class);
         MainActivity.this.startActivity(intent);
     }
 
     private void showFoods(){
-        Intent intent = new Intent(MainActivity.this, ShowFoods.class);
+        Intent intent = new Intent(MainActivity.this, ShowCars.class);
         MainActivity.this.startActivity(intent);
     }
 

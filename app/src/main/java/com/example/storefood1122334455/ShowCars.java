@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowFoods extends AppCompatActivity {
+public class ShowCars extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -25,12 +24,12 @@ public class ShowFoods extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
-    private List<Food> foods;
+    private List<Car> foods;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_foods);
+        setContentView(R.layout.activity_show_cars);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -55,7 +54,7 @@ public class ShowFoods extends AppCompatActivity {
 
                 //iterating through all the values in database
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    Food food = postSnapshot.getValue(Food.class);
+                    Car food = postSnapshot.getValue(Car.class);
                     foods.add(food);
                 }
 
@@ -69,7 +68,7 @@ public class ShowFoods extends AppCompatActivity {
             }
         });
 
-        adapter = new FoodAdapter(foods, this);
+        adapter = new CarAdapter(foods, this);
 
     }
 }
