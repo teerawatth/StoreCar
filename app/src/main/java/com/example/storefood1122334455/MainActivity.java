@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         bAddFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAddFood();
+                showAddCar();
             }
         });
 
@@ -29,18 +29,18 @@ public class MainActivity extends AppCompatActivity {
         bShowImages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFoods();
+                showCars();
             }
         });
 
     }
 
-    private void showAddFood(){
+    private void showAddCar(){
         Intent intent = new Intent(MainActivity.this, AddCar.class);
         MainActivity.this.startActivity(intent);
     }
 
-    private void showFoods(){
+    private void showCars(){
         Intent intent = new Intent(MainActivity.this, ShowCars.class);
         MainActivity.this.startActivity(intent);
     }
